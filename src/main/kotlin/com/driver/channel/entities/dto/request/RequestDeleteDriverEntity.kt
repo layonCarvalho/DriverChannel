@@ -1,4 +1,4 @@
-package com.driver.channel.entities.driver.dto.request
+package com.driver.channel.entities.dto.request
 
 class RequestDeleteDriverEntity {val driver: DeleterDriverEntity = TODO()
 

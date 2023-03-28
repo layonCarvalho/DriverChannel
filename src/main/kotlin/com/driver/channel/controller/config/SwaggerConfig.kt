@@ -46,30 +46,3 @@ class SwaggerConfig : WebMvcConfigurationSupport() {
     }
 }
 
-/*
-    override fun addViewControllers(registry: ViewControllerRegistry) {
-        registry.addRedirectViewController("/v2/api-docs", "/v2/api-docs");
-        registry.addRedirectViewController("/swagger-resources/configuration/ui", "/swagger-resources/configuration/ui");
-        registry.addRedirectViewController("/swagger-resources/configuration/security", "/swagger-resources/configuration/security");
-        registry.addRedirectViewController("/swagger-resources", "/swagger-resources");
-    }
-
- */
-
-
-/*@Configuration
-class MyConfiguration {
-    @Bean
-    fun corsConfigurer(): WebMvcConfigurer {
-        return object : WebMvcConfigurerAdapter() {
-            override fun addCorsMappings(registry: CorsRegistry) {
-                registry.addMapping("/**")
-                    .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH")
-            }
-        }
-    }
-}
-
-/*
-
- */

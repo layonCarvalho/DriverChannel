@@ -12,10 +12,5 @@ class DriverChannelHandler(val messageSource: MessageSource) {
 
 
 
-		//@ResponseStatus(HttpStatus.UNAUTHORIZED)
-		//@ExceptionHandler(value = [AuthUnauthorizedException::class])
-	//fun handle(e: AuthUnauthorizedException) : ApiError {
-	//		LOG.error("ERROR AUTHENTICATE " + e.message)
-	//		return ApiError(e.httpStatusCode.value(), e.codeMessage, e.message)
-	//	}
+
 }

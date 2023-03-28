@@ -1,9 +1,9 @@
 package com.driver.channel.service.driver
 
-import com.driver.channel.entities.driver.dto.request.RequestDeleteDriverEntity
-import com.driver.channel.entities.driver.dto.request.RequestPostDriverEntity
-import com.driver.channel.entities.driver.dto.request.RequestPutDriverEntity
-import com.driver.channel.entities.driver.dto.response.ResponseGetDriverEntity
+import com.driver.channel.entities.dto.request.RequestDeleteDriverEntity
+import com.driver.channel.entities.dto.request.RequestPostDriverEntity
+import com.driver.channel.entities.dto.request.RequestPutDriverEntity
+import com.driver.channel.entities.dto.response.ResponseGetDriverEntity
 
 
 interface DriverService {

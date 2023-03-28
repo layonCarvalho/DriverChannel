@@ -20,9 +20,6 @@
 * [Cenarios](#Cenarios)
 
 
-* [Filas](#Filas)
-
-
 * [Banco de Dados](#BancoDeDados)
 
 
@@ -73,18 +70,17 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 
     DataBase própria;
 
-    Criação do usuario no LDAP;
-
     Notificar em Tópico os usuarios criados;
 
 
 ###### Ações
 
 
-    1. Criar usuario                    POST localhost:8080/v1/user        
-    2. Buscar usuario                   GET  localhost:8080/v1/user
-    3. Alterar dados usuario            PUT  localhost:8080/v1/user
-    4. Bloquear / Desbloquear usuario   PUT  localhost:8080/v1/user
+    1. Criar usuario                    POST localhost:8081/v1/driver        
+    2. Buscar usuario                   GET  localhost:8081/v1/driver
+    3. Alterar dados usuario            PUT  localhost:8081/v1/driver
+    4. Bloquear / Desbloquear usuario   PUT  localhost:8081/v1/driver
+    5. Deletar dados usuario           DELETE localhost:8081/v1/driver
 
 
 
@@ -92,46 +88,32 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 
     1.Criar Usuario:
         1.1 Criar usuario na base PostgreSQL;
-        1.2 Criar usuario no LDAP;
-        1.3 Disparar notificação para o ADM;
+        1.2 Disparar notificação para o ADM;
 
     2.Buscar Usuario:
-        2.1 Buscar todos usuarios;
-        2.2 Buscar usuario por CPF;
-        2.3 Buscar usuario por nome;
+        2.1 Buscar todos os usuarios;
 
     3.Alterar dados usuario:
         3.1 Se usuario não estiver bloqueado:Alterar dados na base PostgreSQL
         3.2 Se usuario estiver bloqueado: Retornar exceção
 
-    4. Bloquear / Desbloquear usuario:        
+    4. Excluir dados usuarios. 
 
+    5. Bloquear / Desbloquear usuario:        
 
-
-
-###### Filas
-
-    INP: NotifyCreateUser.INP
-    RoutingKey: NotifyCreateUser
-    DeadLetter: NotifyCreateUser.BCK.INP
-    Routingkey DeadLetter: NotifyCreateUserDL
 
 
 ###### Integrações Externas
 
     N/A
 
-###### FrontEnd
-
-    https://github.com/IagoSMagalhaes/Flutter
-
 
 #### Banco de Dados
 
-                    Create database users;			
-			--DROP DATABASE users;
+                    Create database driver;			
+			--DROP DATABASE driver;
 			
-			grant all privileges on database users to postgres;			
+			grant all privileges on database driver to postgres;			
 			
 			CREATE TABLE public.tb_usuario(
 			id_usuario bigint PRIMARY KEY,
@@ -149,78 +131,65 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 #### Estrutura de Packages / Padrão nomeclatura arquivos
 
 
-        Entities: 
-            Domain:
-                User -> Objjeto pertinente a camada do banco;
-                UserEntity -> Objeto para transacionar fora da camada de repositorio;
+          Entities: 
+         
+             Domain:
+                 Driver -> Objeto pertinente a camada do banco;
+                 DriverEntity -> Objeto para transacionar fora da camada de repositorio;
             
-            DTO:
-                RequestNotifieCreateUserEntity -> Objeto de request para integrações
-                ResponseNotifieCreateUserEntity -> Objeto de retorno de request para integrações
+             DTO:
+                 RequestPostDriverEntity -> Objeto de request para integrações
+                 RequestPutDriverEntity -> Objeto de request para integrações
+                 RequestDeleteDriverEntity -> Objeto de request para integrações
 
-            Enum:
-                TypeUserEnum: -> Referencia de Enum;
+                 ResponseGetDriverEntity -> Objeto de retorno de request para integrações
+
+             Enum:
+                 TypeDriverEnum: -> Referencia de Enum;
 
             Exception:
-                UserPostException: -> Classe de exceção;
+                 DriverException: -> Classe de exceção;
 
 
         Repository:
             Repository:
-                UserRepository -> Interface de comunicação com BD;
+                 DriverRepository -> Interface de comunicação com BD;
             Domain
-                User -> Classe de referencia ao BD;
+                 Driver -> Classe de referencia ao BD;
             Config
-                DataBaseConfig -> Bean de configuração do BD
+                 DataBaseConfig -> Bean de configuração do BD
 
 
         Usecases:
             Service:
-                UserService -> Interface;
-                UserServiceImpl -> Implementação;          
+                 DriverService -> Interface;
+                 DriverServiceImpl -> Implementação;          
 
 
         Web:
             Controller:
-                UserController -> Camada responsável por receber as requisições;
+                 DriverController -> Camada responsável por receber as requisições;
             Config
-                SwaggerConfig -> Bean responsavel pela config do Swagger
+                 SwaggerConfig -> Bean responsavel pela config do Swagger
 
 
-        GatewayRepository:
-            LdapRepository:
-                GatewayLdapRepository -> Interface de comunicação entre os módulos
-
-            NotifyRepository:
-                GatewayNotifyRepository -> Interface de comunicação entre os módulos
-
-        Other'sRepositoies: ex: LDAP
-            Gateway:
-                GatewayLdapRepositoryImpl -> Implementação do acesso ao módulo do LDAP
-
-            Service:
-                LdapService -> Interface da camada de negócio
-                LdapServiceImpl -> Impl da camada de negócio
-
-            Client:
-                LdapClient -> Client de integração com LDAP            
 
 
 
 #### Padrão de logs
 
         runCatching {
-            LOG.info("START {} user: {} body {}", methodName/service?, cpf, body)
+            LOG.info("START {} driver: {} body {}", methodName/service?, cpf, body)
 
             service.execute();
 
         }.onFailure {
-            LOG.error("ERROR {} user: {} statusCode: {} cause: {} message: {}", methodName/service?, cpf, statusCodeResponse, causeResponse, messageResponse)
+            LOG.error("ERROR {} driver: {} statusCode: {} cause: {} message: {}", methodName/service?, cpf, statusCodeResponse, causeResponse, messageResponse)
             
             throw it
 
         }.onSucesss {
-            LOG.info("END {} user: {}", methodName/service?, cpf)
+            LOG.info("END {} driver: {}", methodName/service?, cpf)
         }
 
 

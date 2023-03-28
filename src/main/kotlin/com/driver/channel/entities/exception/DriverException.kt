@@ -1,4 +1,4 @@
-package com.driver.channel.entities.driver.exception
+package com.driver.channel.entities.exception
 
 import org.springframework.http.HttpStatus
 

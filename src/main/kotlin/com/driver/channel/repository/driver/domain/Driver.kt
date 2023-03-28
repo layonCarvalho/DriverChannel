@@ -1,6 +1,6 @@
 package com.driver.channel.repository.driver.domain
 
-import com.driver.channel.entities.driver.domain.DriverEntity
+import com.driver.channel.entities.domain.DriverEntity
 import com.sun.istack.NotNull
 import java.time.LocalDateTime
 import javax.persistence.*

@@ -1,6 +1,6 @@
-package com.driver.channel.entities.driver.dto.request
+package com.driver.channel.entities.dto.request
 
-import com.driver.channel.entities.driver.domain.DriverEntity
+import com.driver.channel.entities.domain.DriverEntity
 
 class RequestPostDriverEntity(
     val name: String,

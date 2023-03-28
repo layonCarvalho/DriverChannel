@@ -1,4 +1,4 @@
-package com.driver.channel.entities.driver.domain
+package com.driver.channel.entities.domain
 
 import java.time.LocalDateTime
 
