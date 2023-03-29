@@ -23,26 +23,3 @@ class Boot {
 }
 
 
-/*
-@SpringBootApplication
-class Application {
-	@Bean
-	fun commandLineRunner(ctx: ApplicationContext): CommandLineRunner {
-		return CommandLineRunner { args ->
-			System.out.println("Let's inspect the beans provided by Spring Boot:")
-			val beanNames: Array<String> = ctx.getBeanDefinitionNames()
-			Arrays.sort(beanNames)
-			for (beanName in beanNames) {
-				System.out.println(beanName)
-			}
-		}
-	}
-
-	companion object {
-		fun main(args: Array<String?>?) {
-			SpringApplication.run(Application::class.java, args)
-		}
-	}
-}
-
- */

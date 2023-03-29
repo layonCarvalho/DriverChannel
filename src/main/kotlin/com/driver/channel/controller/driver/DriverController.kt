@@ -38,7 +38,7 @@ class DriverController(val service: DriverService) {
 		return ResponseEntity.ok(HttpStatus.OK)
 	}
 
-	@PutMapping("driver/v1/")
+	@PutMapping("driver/v1")
 	@ApiOperation("Block driver by Document", response = HttpStatus::class)
 	fun block(@RequestBody body: RequestPutDriverEntity): ResponseEntity<HttpStatus> {
 		return ResponseEntity.ok(HttpStatus.OK)
