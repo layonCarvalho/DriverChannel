@@ -3,6 +3,7 @@ package com.driver.channel.service.impl
 import com.driver.channel.entities.dto.request.RequestDeleteDriverEntity
 import com.driver.channel.entities.dto.request.RequestPostDriverEntity
 import com.driver.channel.entities.dto.request.RequestPutDriverEntity
+import com.driver.channel.entities.dto.request.toEntity
 import com.driver.channel.entities.dto.response.ResponseGetDriverEntity
 import com.driver.channel.entities.exception.DriverDeleteException
 import com.driver.channel.entities.exception.DriverException
@@ -10,12 +11,12 @@ import com.driver.channel.entities.exception.DriverPostException
 import com.driver.channel.entities.exception.DriverPutException
 import com.driver.channel.repository.driver.domain.Driver
 import com.driver.channel.repository.driver.domain.toDomain
-import com.driver.channel.repository.driver.domain.toEntity
 import com.driver.channel.repository.driver.repository.DriverRepository
 import com.driver.channel.service.driver.DriverService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
+import java.util.Collections.emptyList
 
 @Service
 class DriverServiceImpl(val repository: DriverRepository) : DriverService {
@@ -80,7 +81,7 @@ class DriverServiceImpl(val repository: DriverRepository) : DriverService {
 
 		runCatching {
 
-			val domain = body.toDomain()
+			val domain = body.driver.toEntity(1L).toDomain()
 
 			repository.save(domain)
 

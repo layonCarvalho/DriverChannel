@@ -79,8 +79,7 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
     1. Criar usuario                    POST localhost:8081/v1/driver        
     2. Buscar usuario                   GET  localhost:8081/v1/driver
     3. Alterar dados usuario            PUT  localhost:8081/v1/driver
-    4. Bloquear / Desbloquear usuario   PUT  localhost:8081/v1/driver
-    5. Deletar dados usuario           DELETE localhost:8081/v1/driver
+    4. Deletar dados usuario           DELETE localhost:8081/v1/driver
 
 
 
@@ -95,17 +94,11 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 
     3.Alterar dados usuario:
         3.1 Se usuario não estiver bloqueado:Alterar dados na base PostgreSQL
-        3.2 Se usuario estiver bloqueado: Retornar exceção
+
 
     4. Excluir dados usuarios. 
 
-    5. Bloquear / Desbloquear usuario:        
 
-
-
-###### Integrações Externas
-
-    N/A
 
 
 #### Banco de Dados
@@ -121,7 +114,6 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 			telefone varchar(255),
 			email varchar(255),
 			ativo boolean,
-			bloqueado boolean,
 			dh_criacao timestamp,
 			dh_alteracao timestamp,
 			dh_exclusao timestamp);
