@@ -10,7 +10,7 @@ import javax.sql.DataSource
 @Configuration
 class DataBaseConfig(@Value("\${spring.datasource.postgre.username:postgres}") val driver: String,
 					 @Value("\${spring.datasource.postgre.password:postgres}") val password: String,
-					 @Value("\${spring.datasource.postgre.url:jdbc:postgresql://localhost:5432/users}") val url: String,
+					 @Value("\${spring.datasource.postgre.url:jdbc:postgresql://localhost:5432/driver}") val url: String,
 					 @Value("\${spring.database.postgre.driverClassName:org.postgresql.Driver}") val driverClassName: String) {
 
 	@Bean

@@ -38,12 +38,6 @@ class DriverController(val service: DriverService) {
 		return ResponseEntity.ok(HttpStatus.OK)
 	}
 
-	@PutMapping("driver/v1")
-	@ApiOperation("Block driver by Document", response = HttpStatus::class)
-	fun block(@RequestBody body: RequestPutDriverEntity): ResponseEntity<HttpStatus> {
-		return ResponseEntity.ok(HttpStatus.OK)
-	}
-
 	@DeleteMapping("driver/v1")
 	@ApiOperation("Exclude driver by name", response = HttpStatus::class)
 	fun delete(@RequestBody body: RequestDeleteDriverEntity): ResponseEntity<HttpStatus> {

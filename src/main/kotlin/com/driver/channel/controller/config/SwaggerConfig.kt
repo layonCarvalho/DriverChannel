@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 @Configuration
 @EnableSwagger2
 class SwaggerConfig : WebMvcConfigurationSupport() {
+
     @Bean
     fun greetingApi(): Docket {
         return Docket(DocumentationType.SWAGGER_2)
@@ -46,3 +47,15 @@ class SwaggerConfig : WebMvcConfigurationSupport() {
     }
 }
 
+@Configuration
+class MyConfiguration {
+    @Bean
+    fun corsConfigurer(): WebMvcConfigurer {
+        return object : WebMvcConfigurerAdapter() {
+            override fun addCorsMappings(registry: CorsRegistry) {
+                registry.addMapping("/**")
+                    .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", )
+            }
+        }
+    }
+}
