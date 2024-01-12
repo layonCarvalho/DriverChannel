@@ -1,6 +1,5 @@
-# Getting Started
 
-### Reference Documentation
+### Referencia da Documentação 
 
 * [Objetivos](#Objetivos)
 
@@ -15,6 +14,9 @@
 
 
 * [Ações](#Ações)
+
+
+* [Exemplo](#Exemplo)
 
 
 * [Cenarios](#Cenarios)
@@ -55,8 +57,6 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 
     [Linguagem]                  Kotlin
 
-    [Autenticação]               SpringSecurity / oAuth2 / JWT
-
     [Design Pattern's]           Clean Architecture / Strategy / Chain Of Responsability / Builder
 
     [Mensageria]                 Rabbit 
@@ -70,8 +70,6 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 
     DataBase própria;
 
-    Notificar em Tópico os usuarios criados;
-
 
 ###### Ações
 
@@ -81,20 +79,30 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
     3. Alterar dados usuario            PUT  localhost:8081/v1/driver
     4. Deletar dados usuario           DELETE localhost:8081/v1/driver
 
+###### Exemplo 
+Para cadastrar um Driver vai no POSTMAN e crie um método POST.
 
+O corpo (body) do método POST é JSON e deve conter:
+
+          {
+            "id": 1,
+            "name":"layon",
+            "cellphone": "11971107968",
+            "email": "layon.300@hotmail.com",
+            "active": true,
+           
+        }
 
 ###### Cenarios
 
     1.Criar Usuario:
         1.1 Criar usuario na base PostgreSQL;
-        1.2 Disparar notificação para o ADM;
 
     2.Buscar Usuario:
         2.1 Buscar todos os usuarios;
 
     3.Alterar dados usuario:
-        3.1 Se usuario não estiver bloqueado:Alterar dados na base PostgreSQL
-
+        3.1 Alterar dados na base PostgreSQL;
 
     4. Excluir dados usuarios. 
 
@@ -108,8 +116,8 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 			
 			grant all privileges on database driver to postgres;			
 			
-			CREATE TABLE public.tb_usuario(
-			id_usuario bigint PRIMARY KEY,
+			CREATE TABLE public.tb_driver(
+			id_driver bigint PRIMARY KEY,
 			nome varchar(255),
 			telefone varchar(255),
 			email varchar(255),
@@ -136,8 +144,6 @@ O termo se refere à preparação de backlog  (que são os requisitos ou lista d
 
                  ResponseGetDriverEntity -> Objeto de retorno de request para integrações
 
-             Enum:
-                 TypeDriverEnum: -> Referencia de Enum;
 
             Exception:
                  DriverException: -> Classe de exceção;

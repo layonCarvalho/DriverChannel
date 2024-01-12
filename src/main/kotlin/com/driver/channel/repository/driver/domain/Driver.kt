@@ -24,7 +24,7 @@ class Driver (
 	@Size(min=2, max=30)
 	val name: String? = null,
 
-	@Column(name = "telefone")
+	@Column(name = "cellphone")
 	@Min(18)
 	val cellphone: String? = null,
 
