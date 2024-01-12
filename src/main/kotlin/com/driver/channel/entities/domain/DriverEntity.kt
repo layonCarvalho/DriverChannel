@@ -9,6 +9,6 @@ data class DriverEntity(
     val email: String? = null,
     val active: Boolean? = null,
     val dateCreate: LocalDateTime? = LocalDateTime.now(),
-    val dateUpdate: LocalDateTime? = null,
-    val dateExclude: LocalDateTime? = null
+    val dateUpdate: LocalDateTime? = LocalDateTime.now(),
+    val dateExclude: LocalDateTime? = LocalDateTime.now()
 )
