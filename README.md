@@ -202,7 +202,4 @@ O corpo (body) do método POST é JSON e deve conter:
         Swagger               https://medium.com/@raphaelbluteau/spring-boot-swagger-documentando-sua-api-automaticamente-27903293aeb6
 
 
-#### Personas
 
-
-Robert Martin -> Clean Code && Clean Architecture
